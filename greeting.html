@@ -24,14 +24,19 @@
       }
 
       class Goodbye extends React.Component {
-         render() {
-           return (
+        constructor(props) {
+          super(props);
+          this.state = {date: new Date()};
+        }
+        render() {
+          return (
             <div>
-               <h2>Goodbye World!</h2>
-             </div>
+              <h2>Goodbye {this.props.id}!</h2>
+              <h3>You are signing off on {this.state.date.toLocaleTimeString()}.</h3>
+            </div>
           );
-         }
-       }
+        }
+      }
 
        ReactDOM.render(
         <div>
@@ -42,7 +47,7 @@
 
       ReactDOM.render(
         <div>
-           <Goodbye />
+           <Goodbye id="89372"/>
            <Goodbye />
         </div>,
          document.getElementById('ppa'),
